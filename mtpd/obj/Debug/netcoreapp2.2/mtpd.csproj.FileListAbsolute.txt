@@ -1,0 +1,16 @@
+C:\Users\gabri\source\repos\mtpd\mtpd\bin\Debug\netcoreapp2.2\mtpd.deps.json
+C:\Users\gabri\source\repos\mtpd\mtpd\bin\Debug\netcoreapp2.2\mtpd.runtimeconfig.json
+C:\Users\gabri\source\repos\mtpd\mtpd\bin\Debug\netcoreapp2.2\mtpd.runtimeconfig.dev.json
+C:\Users\gabri\source\repos\mtpd\mtpd\bin\Debug\netcoreapp2.2\mtpd.dll
+C:\Users\gabri\source\repos\mtpd\mtpd\bin\Debug\netcoreapp2.2\mtpd.pdb
+C:\Users\gabri\source\repos\mtpd\mtpd\obj\Debug\netcoreapp2.2\mtpd.csproj.CoreCompileInputs.cache
+C:\Users\gabri\source\repos\mtpd\mtpd\obj\Debug\netcoreapp2.2\mtpd.RazorAssemblyInfo.cache
+C:\Users\gabri\source\repos\mtpd\mtpd\obj\Debug\netcoreapp2.2\mtpd.RazorAssemblyInfo.cs
+C:\Users\gabri\source\repos\mtpd\mtpd\obj\Debug\netcoreapp2.2\mtpd.AssemblyInfoInputs.cache
+C:\Users\gabri\source\repos\mtpd\mtpd\obj\Debug\netcoreapp2.2\mtpd.AssemblyInfo.cs
+C:\Users\gabri\source\repos\mtpd\mtpd\obj\Debug\netcoreapp2.2\mtpd.RazorTargetAssemblyInfo.cache
+C:\Users\gabri\source\repos\mtpd\mtpd\obj\Debug\netcoreapp2.2\mtpd.dll
+C:\Users\gabri\source\repos\mtpd\mtpd\obj\Debug\netcoreapp2.2\mtpd.pdb
+C:\Users\gabri\source\repos\mtpd\mtpd\bin\Debug\netcoreapp2.2\mtpd.Views.dll
+C:\Users\gabri\source\repos\mtpd\mtpd\obj\Debug\netcoreapp2.2\mtpd.csproj.CopyComplete
+C:\Users\gabri\source\repos\mtpd\mtpd\obj\Debug\netcoreapp2.2\mtpd.csprojAssemblyReference.cache
