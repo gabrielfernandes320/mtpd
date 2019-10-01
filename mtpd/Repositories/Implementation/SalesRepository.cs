@@ -22,57 +22,27 @@ namespace mtpd.Repositories.Implementation
             return _mtpdContext.Sale.ToList();
         }
 
-        object ImtpdRepository<Sale>.Get(int id)
+        public async Task<Sale> Get(int id)
         {
-            var Sale = _mtpdContext.Sale.Find(id);
-            return Sale;
+            var sale = await _mtpdContext.Sale.FindAsync(id);
+            return sale;
         }
 
-        public object Update(int id, Sale Sale)
-        {
-            _mtpdContext.Entry(Sale).State = EntityState.Modified;
-
-            try
-            {
-                _mtpdContext.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!Exists(id))
-                {
-                    return null;
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return Sale;
-
-        }
-
-        public object Update(int id, object obj)
+        public async Task<Sale> Update(int id, object obj)
         {
             _mtpdContext.Entry(obj).State = EntityState.Modified;
 
             try
             {
-                _mtpdContext.SaveChanges();
+                await _mtpdContext.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+            catch
             {
-                if (!Exists(id))
-                {
-                    return null;
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
 
-            return obj;
+            return await Get(id);
+
         }
 
         public bool Exists(int id)
@@ -80,21 +50,20 @@ namespace mtpd.Repositories.Implementation
             return _mtpdContext.Sale.Any(e => e.Id == id);
         }
 
-        public object Add(object obj)
+        public async Task<Sale> Add(object obj)
         {
             _mtpdContext.Sale.Add((Sale)obj);
 
             try
             {
-                _mtpdContext.SaveChanges();
+                await _mtpdContext.SaveChangesAsync();
             }
             catch
             {
                 throw;
             }
 
-            return obj;
-
+            return (Sale)obj;
         }
 
         public object Delete(object obj)
@@ -112,5 +81,6 @@ namespace mtpd.Repositories.Implementation
 
             return obj;
         }
+
     }
 }

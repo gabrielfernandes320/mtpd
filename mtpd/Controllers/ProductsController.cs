@@ -34,10 +34,9 @@ namespace mtpd.Controllers
         // GET: api/products/GetProduct/1
         [HttpGet("GetProduct/{id}")]
         //[Route("GetProduct")]
-        public ActionResult<Product> GetProduct(int id)
+        public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            var product =  _productsRepository.Get(id);
-
+            var product = await _productsRepository.Get(id);
             if (product == null)
             {
                 return NotFound();
@@ -48,7 +47,7 @@ namespace mtpd.Controllers
 
         //api/products/UpdateProduct/1
         [HttpPut("UpdateProduct/{id}")]
-        public ActionResult<Product> UpdateProduct(int id, Product product)
+        public async Task<ActionResult<Product>> UpdateProductAsync(int id, Product product)
         {
 
             if (id != product.Id)
@@ -56,7 +55,7 @@ namespace mtpd.Controllers
                 return BadRequest();
             }
 
-            var updateReturn = _productsRepository.Update(id, product);
+            var updateReturn = await _productsRepository.Update(id, product);
 
             if (updateReturn != null)
             {
@@ -69,9 +68,9 @@ namespace mtpd.Controllers
         //api/products/AddProduct
         [HttpPost]
         [Route("AddProduct")]
-        public ActionResult<Product> AddProduct(Product product)
+        public async Task<ActionResult<Product>> AddProductAsync(Product product)
         {
-            var addReturn = _productsRepository.Add(product);
+            var addReturn = await _productsRepository.Add(product);
 
             if (addReturn != null)
             {
@@ -83,9 +82,9 @@ namespace mtpd.Controllers
 
         // GET: api/products/DeleteProduct/1
         [HttpDelete("DeleteProduct/{id}")]
-        public ActionResult<Product> DeleteProduct(int id)
+        public async Task<ActionResult<Product>> DeleteProductAsync(int id)
         {
-            var product = (Product)_productsRepository.Get(id);
+            var product = await _productsRepository.Get(id);
             if (product == null)
             {
                 return NotFound();

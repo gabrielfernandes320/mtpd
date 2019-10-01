@@ -23,9 +23,9 @@ namespace mtpd.Repositories.Implementation
                 return _mtpdContext.Product.ToList();
         }
 
-        object ImtpdRepository<Product>.Get(int id)
+        public async Task<Product> Get(int id)
         {
-            var product = _mtpdContext.Product.Find(id);
+            var product = await _mtpdContext.Product.FindAsync(id);
             return product;
         }
 
@@ -53,27 +53,21 @@ namespace mtpd.Repositories.Implementation
 
         }
 
-        public object Update(int id, object obj)
+        public async Task<Product> Update(int id, object obj)
         {
             _mtpdContext.Entry(obj).State = EntityState.Modified;
-
+          
             try
             {
-                _mtpdContext.SaveChanges();
+               await _mtpdContext.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+            catch
             {
-                if (!Exists(id))
-                {
-                    return null;
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
 
-            return obj;
+            return await Get(id);
+
         }
 
         public bool Exists(int id)
@@ -81,21 +75,20 @@ namespace mtpd.Repositories.Implementation
             return _mtpdContext.Product.Any(e => e.Id == id);
         }
 
-        public object Add(object obj)
+        public async Task<Product> Add(object obj)
         {
             _mtpdContext.Product.Add((Product)obj);
 
             try
             {
-                _mtpdContext.SaveChanges();
+                await _mtpdContext.SaveChangesAsync();
             }
             catch
             {
                 throw;
             }
 
-            return obj;
-
+            return (Product)obj;
         }
 
         public object Delete(object obj)
@@ -113,5 +106,7 @@ namespace mtpd.Repositories.Implementation
 
             return obj;
         }
+
+      
     }
 }

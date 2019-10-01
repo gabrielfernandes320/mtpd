@@ -10,13 +10,13 @@ namespace mtpd.Repositories.Contract
     {
         IEnumerable<T> GetAll();
 
-        object Get(int id);
+        Task<T> Get(int id);
 
-        object Update(int id, object obj);
+        Task<T> Update(int id, object obj);
 
         bool Exists(int id);
 
-        object Add(object obj);
+        Task<T> Add(object obj);
 
         object Delete(object obj);
 

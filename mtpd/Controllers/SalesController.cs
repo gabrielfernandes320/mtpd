@@ -68,9 +68,9 @@ namespace mtpd.Controllers
         //api/Sale/AddSale
         [HttpPost]
         [Route("AddSale")]
-        public ActionResult<Sale> AddSale(Sale Sale)
+        public async Task<ActionResult<Sale>> AddSaleAsync(Sale Sale)
         {
-            var addReturn = _SaleRepository.Add(Sale);
+            var addReturn = await _SaleRepository.Add(Sale);
 
             if (addReturn != null)
             {
@@ -82,9 +82,9 @@ namespace mtpd.Controllers
 
         // GET: api/Sale/DeleteSale/1
         [HttpDelete("DeleteSale/{id}")]
-        public ActionResult<Sale> DeleteSale(int id)
+        public async Task<ActionResult<Sale>> DeleteSaleAsync(int id)
         {
-            var Sale = (Sale)_SaleRepository.Get(id);
+            var Sale = await _SaleRepository.Get(id);
             if (Sale == null)
             {
                 return NotFound();
